@@ -2,11 +2,11 @@ Main(){
 
 	y = 85;
 
-	Predicate p1 = #morethan("Grade", y);
+	Predicate p1 = #Morethan("Grade", y);
 
 	x = 100;
 
-	Predicate p2 = #lessthan("Grade", x);
+	Predicate p2 = #Lessthan("Grade", x);
 
 	f2 = p1;
 	
