@@ -1,0 +1,24 @@
+Main(){
+
+DirGraph{
+
+Edge throne;
+
+Vertex jonSnow;
+
+Vertex daenerysTargaryen;
+
+Vertex cerseiLannister;
+
+jonSnow.IncludeProperty("Title", "Bastard");
+
+daenerysTargaryen.IncludeProperty("Title", "Mother of dragons");
+
+cerseiLannister.IncludeProperty("Title", "Queen");
+
+Connect(jonSnow, daenerysTargaryen);
+
+Connect(jonSnow, cerseiLannister);
+
+}
+}
