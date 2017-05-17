@@ -8,28 +8,36 @@ void yyerror(char* s);
 int errorNumber = 0;
 
 %}
-
-%token FUNCTION IF ELSEIF ELSE END FOR WHILE RETURN SHAPE THIS MAIN NULLTYPE TRUE FALSE
+%define parse.error verbose
+%token FUNCTION IFSTATEMENT ELSESTATEMENT END FOR WHILE RETURN
 %token IDENTIFIER COMMENT
 %token INT FLOAT STRING
 %token EQUAL SEMICOLON COMMA DOT
-%token LEFTSQUAREBRACKET RIGHTSQUAREBRACKET
-%token LEFTPAR RIGHTPAR
+%token SLBRACKET SRBRACKET
 %token NOT
 %token ASSIGNMENT
 %token COLON
 %token CONNECT
 %token LENGHT
-%token EQUAL
-
-
+%token INCLUDEPROPERTY
+%token MAIN
+%token PROPERTY
+%token VARIABLE
+%token VERTEX
+%token BOOLEAN
+%token DIRECTED
+%token UNDIRECTED
+%token EDGE
+%token LPARAN
+%token RPARAN
+%token LBRACKET
+%token RBRACKET
+%token INTEGER
 %left AND OR
 %nonassoc ISEQUAL NOTEQUAL
-%nonassoc LESSTHAN GREATERTHAN LESS_THAN_EQUAL GREATER_THAN_EQUAL
+%nonassoc LESS GREATER LESSEQUAL GREATEREQUAL
 %left PLUS MINUS
-%left MULTIPLICATION DIVISION REMAINDER
-%left UNARY //unary plus, minus, not
-%left EXPONENTIAL
+%left MULTIPLICATION DIVISION
 
 %%
 
@@ -40,7 +48,7 @@ entry:
 
 
 functionbody:
-	functionbody stmt
+	stmt functionbody 
 	|stmt
 	;
 
@@ -55,7 +63,7 @@ graph_definition:
 	;
 
 component_list:
-	component_list component
+	component component_list 
 	|component
 	;
 
@@ -83,12 +91,12 @@ graph_object_declaration:
 	;
 
 property:
-	PROPERTY IDENTIFIER ASSIGNMENT LPRAN property_stmt RPRAN
+	PROPERTY IDENTIFIER ASSIGNMENT LPARAN property_stmt RPARAN
 	;
 
 methodcall:
-	IDENTIFIER DOT INCLUDEPROPERTY LPRAN property_stmt
-	|CONNECT LPRAN IDENTIFIER COMMA IDENTIFIER COMMA IDENTIFIER RPRAN
+	IDENTIFIER DOT INCLUDEPROPERTY LPARAN property_stmt
+	|CONNECT LPARAN IDENTIFIER COMMA IDENTIFIER COMMA IDENTIFIER RPARAN
 	;
 
 assignment:
@@ -100,22 +108,22 @@ conditional:
 	;
 
 if_cond:
-	IFSTATEMENT LPRAN cond RPRAN LBRACKET component_list if_stmt RBRACKET
+	IFSTATEMENT LPARAN cond RPARAN LBRACKET component_list  RBRACKET
 	;
 
 ifelse_cond:
-	IFSTATEMENT LPRAN cond RPRAN LBRACKET component_list RBRACKET ELSESTATEMENT LBRACKET component RBRACKET
+	IFSTATEMENT LPARAN cond RPARAN LBRACKET component_list RBRACKET ELSESTATEMENT LBRACKET component RBRACKET
 	;
 
 cond:
 	|BOOLEAN
 	|IDENTIFIER booleanopr element
 	|element booleanopr IDENTIFIER
-	|IDENTIFIER booleaopr IDENTIFIER
+	|IDENTIFIER booleanopr IDENTIFIER
 	;
 
 booleanopr:
-	COMPARISON
+	ISEQUAL
 	|GREATER
 	|LESS
 	|GREATEREQUAL
@@ -129,11 +137,11 @@ loop:
 	;
 
 for:
-	FOR LPRAN assignment SEMICOLON cond SEMICOLON asignment RPRAN LBRACKET component_list RBRACKET
+	FOR LPARAN assignment SEMICOLON cond SEMICOLON assignment RPARAN LBRACKET component_list RBRACKET
 	;
 
 while:
-	WHILE LPRAN cond RPRAN LBRACKET component_list RBRACKET
+	WHILE LPARAN cond RPARAN LBRACKET component_list RBRACKET
 	;
 
 property_stmt:
@@ -158,7 +166,7 @@ list:
 	;
 
 mapbody:
-	map_body COMMA map_tail
+	mapbody COMMA map_tail
 	|map_tail
 	|
 	;
