@@ -9,6 +9,10 @@ int errorNumber = 0;
 
 %}
 %define parse.error verbose
+%token SEMICOLON
+%token COMMA
+%token DOT
+%token COLON
 %token FUNCTION IFSTATEMENT ELSESTATEMENT END FOR WHILE RETURN
 %token IDENTIFIER COMMENT
 %token INT FLOAT STRING
@@ -16,7 +20,6 @@ int errorNumber = 0;
 %token SLBRACKET SRBRACKET
 %token NOT
 %token ASSIGNMENT
-%token COLON
 %token CONNECT
 %token LENGHT
 %token INCLUDEPROPERTY
@@ -33,6 +36,13 @@ int errorNumber = 0;
 %token LBRACKET
 %token RBRACKET
 %token INTEGER
+%token FLOAT
+%token STRING
+%token CONCATENATION
+%token ALTERNATION
+%token REPETITION
+%token SPACE
+%token NEWLINE
 %left AND OR
 %nonassoc ISEQUAL NOTEQUAL
 %nonassoc LESS GREATER LESSEQUAL GREATEREQUAL
@@ -48,7 +58,7 @@ entry:
 
 
 functionbody:
-	stmt functionbody 
+	stmt functionbody
 	|stmt
 	;
 
@@ -63,7 +73,7 @@ graph_definition:
 	;
 
 component_list:
-	component component_list 
+	component component_list
 	|component
 	;
 
