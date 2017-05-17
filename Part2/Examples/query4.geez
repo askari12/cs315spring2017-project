@@ -1,6 +1,11 @@
 Main(){
 
 	y = 85;
+	
+	If(y == 85)
+	{
+		y = 65;
+	}
 
 	Predicate p1 = #Morethan("Grade", y);
 
@@ -8,11 +13,11 @@ Main(){
 
 	Predicate p2 = #Lessthan("Grade", x);
 
-	f2 = p1;
+	Filter f2 = p1;
 	
-	f3 = p2;
+	Filter f3 = p2;
 
-	f1 = p1 | p2;
+	Filter f1 = p1 | p2;
 
 	Query q1 = (f1|(f2&f3))^;
 
