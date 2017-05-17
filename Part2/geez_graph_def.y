@@ -164,11 +164,11 @@ map:
 
 set:
 	SLBRACKET setbody1 SRBRACKET
-	SLBRACKET setbody2 SRBRACKET
-	SLBRACKET setbody3 SRBRACKET
-	SLBRACKET setbody4 SRBRACKET
-	SLBRACKET setbody5 SRBRACKET
-	SLBRACKET setbody6 SRBRACKET
+	|SLBRACKET setbody2 SRBRACKET
+	|SLBRACKET setbody3 SRBRACKET
+	|SLBRACKET setbody4 SRBRACKET
+	|SLBRACKET setbody5 SRBRACKET
+	|SLBRACKET setbody6 SRBRACKET
 	;
 
 list:
@@ -178,7 +178,6 @@ list:
 mapbody:
 	mapbody COMMA map_tail
 	|map_tail
-	|
 	;
 
 map_tail:
