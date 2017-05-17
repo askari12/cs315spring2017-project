@@ -16,8 +16,10 @@ daenerysTargaryen.IncludeProperty("Title", "Mother of dragons");
 
 cerseiLannister.IncludeProperty("Title", "Queen");
 
+//3rd argument missing
 Connect(jonSnow, daenerysTargaryen);
 
+//3rd argument missing
 Connect(jonSnow, cerseiLannister);
 
 }
