@@ -8,8 +8,10 @@ Vertex hotdog;
 
 Edge frenchFries;
 
+//Syntax error, semicolon missing.
 hamburger.InludeProperty("Taste", "amazing")
 
+//Syntax error, semicolon missing.
 hotdog.IncludeProperty("Taste", "second choice")
 
 Connect(hamburger, hotdog, frenchFries);
