@@ -7,7 +7,7 @@ Edge plain;
 Edge car;
 Edge train;
 asia.IncludeProperty("Population", 4.436);
-asia.IncludeProperty("Countries", ["China", "North Korea","South Korea", "Japan"]);
+asia.IncludeProperty("Countries", {"China", "North Korea","South Korea", "Japan"});
 Property p1 = ("Europe", "Second Continent");
 Property p2 = ("Population", 743);
 Property p3 = ("Countries", ["Turkey", "Spain", "France","Germany"]);

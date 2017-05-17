@@ -158,6 +158,10 @@ set:
     SLBRACKET setbody SRBRACKET
     ;
 
+list:
+    LBRACKET listbody RBRACKET
+    ;
+
 mapbody:
     map_tail COMMA mapbody
     |map_tail
@@ -171,14 +175,17 @@ setbody:
     element tail2
     |
     ;
-
+listbody:
+    element tail2
+    |
+    ;
 tail2:
     COMMA setbody;
     |
     ;
 
 element:
-    INTEGER|FLOAT|STRING|map|set
+    INTEGER|FLOAT|STRING|map|set|list
     ;
 
 end:

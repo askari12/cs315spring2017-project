@@ -186,8 +186,9 @@ while:
     ;
 
 element:
-    INTEGER|FLOAT|STRING|map|set
+    INTEGER|FLOAT|STRING|map|set|list
     ;
+
 
 map:
     LBRACKET mapbody RBRACKET
@@ -196,13 +197,19 @@ map:
 set:
     SLBRACKET setbody SRBRACKET
     ;
+list:
+    LBRACKET listbody RBRACKET
+    ;
 
 mapbody:
     mapbody COMMA map_tail
     |map_tail
     |
     ;
-
+listbody:
+    element COMMA listbody
+    |element
+    ;
 map_tail:
     STRING COLON element
     ;
