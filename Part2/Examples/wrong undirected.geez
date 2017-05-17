@@ -1,0 +1,18 @@
+Main(){
+
+UndirGraph fastfood{
+
+Vertex hamburger;
+
+Vertex hotdog;
+
+Edge frenchFries;
+
+hamburger.InludeProperty("Taste", "amazing")
+
+hotdog.IncludeProperty("Taste", "second choice")
+
+Connect(hamburger, hotdog, frenchFries);
+
+}
+}
