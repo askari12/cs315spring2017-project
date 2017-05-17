@@ -1,6 +1,11 @@
 Main(){
 
 	y = 85;
+	
+	If(y == 85)
+	{
+		y = 65;
+	}
 
 	Predicate p1 = #Morethan("Grade", y);
 
